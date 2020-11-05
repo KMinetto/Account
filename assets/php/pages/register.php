@@ -1,4 +1,43 @@
+<?php
 
+require_once '../pdo/db.php';
+$validate = false;
+
+if (isset($_POST['inscription'])) {
+    if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm'])) {
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $mail = htmlspecialchars($_POST['email']);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $confirm = password_hash($_POST['confirm'], PASSWORD_BCRYPT);
+
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            $reqmail = $bdd->prepare('SELECT * FROM membres WHERE mail = ?');
+            $reqmail->execute(array($mail));
+            $mailExist = $reqmail->rowCount();
+            if ($mailExist == 0) {
+                if ($_POST['confirm'] == $_POST['password']) {
+                    $insertmbr = $bdd->prepare("INSERT INTO membres (pseudo, mail, password) VALUES (?, ?, ?)");
+                    $insertmbr->execute(array($pseudo, $mail, $password));
+                    $validate = true;
+                    $error = 'Votre compte est bien créé';
+    //                $_SESSION['crated_account'] = 'Votre compte est bien créé';
+                    // TODO Redirection vers une autre page
+                } else {
+                    $error = 'Vos mots de passe ne sont pas identiques';
+                }
+            } else {
+                $error = 'Adresse mail déjà utilisée';
+            }
+        } else {
+            $error = 'Votre email est invalide';
+        }
+
+    } else {
+        $error = 'Tous les champs doivent être complétés';
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -59,20 +98,27 @@
            <div id="formContent">
                <!-- Tabs Titles -->
 
+               <?php
+               if (isset($error) && $validate == true) {
+                   echo "<p class='alert alert-success'>$error</p>";
+               } elseif (isset($error) && $validate == false) {
+                   echo "<p class='alert alert-danger'>$error</p>";
+               }
+               ?>
+
                <!-- Icon -->
                <div class="fadeIn first">
                    <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
                    <h2 class="my-5">Sign In</h2>
-               </div>
 
                <!-- Login Form -->
                <form action="" method="post">
                    <input type="text" id="pseudo" class="fadeIn second zero-radius" name="pseudo" placeholder="pseudo">
                    <input type="email" id="email" class="fadeIn third zero-radius" name="email" placeholder="email">
-                   <input type="text" id="password" class="fadeIn fourth zero-radius" name="login" placeholder="password">
-                   <input type="text" id="password_confirm" class="fadeIn fifth, zero-radius" name="confirm" placeholder="confirm password">
+                   <input type="password" id="password" class="fadeIn fourth zero-radius" name="password" placeholder="password">
+                   <input type="password" id="password_confirm" class="fadeIn fifth, zero-radius" name="confirm" placeholder="confirm password">
 
-                   <input type="submit" class="fadeIn fourth zero-raduis" value="register">
+                   <input type="submit" class="fadeIn fourth zero-raduis" name="inscription" value="register">
                    <h2>You already have an account ?<h2>
                            <a href="login.php"><input type="button" class="fadeIn fourth zero-raduis pc" value="login"></a>
                </form>
