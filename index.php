@@ -6,9 +6,6 @@ require_once 'assets/php/require/header.php';
 $pagesTitle = 'noIdea | Accueil';
 
 ?>
-
-<!--Main Layout-->
-<main role="main" class="index">
     <div class="container">
         <div class="row">
             <div class="orcas">

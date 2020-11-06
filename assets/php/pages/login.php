@@ -1,5 +1,8 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once '../functions/functions.php';
 
 ?>
 
@@ -62,6 +65,15 @@
     <div class="wrapper fadeInDown zero-raduis">
         <div id="formContent">
             <!-- Tabs Titles -->
+
+            <?php if (isset($_SESSION['flash'])): ?>
+                <?php foreach ($_SESSION['flash'] as $type => $message) : ?>
+                   <div class="alert alert-<?= $type ?>">
+                       <p><?= $message ?></p>
+                   </div>
+                <?php endforeach; ?>
+            <?php unset($_SESSION['flash']); ?>
+            <?php endif; ?>
 
             <!-- Icon -->
             <div class="fadeIn first">
