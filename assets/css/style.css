@@ -3,11 +3,15 @@ html {
 }
 
 header {
-    position: fixed;
     height: 60px;
     background-color: #000032;
     outline: none;
     font-size: 1.6rem;
+}
+
+.title {
+    font-size: 9.0rem;
+    font-family: 'Old London', serif;
 }
 
 .log {
@@ -66,6 +70,10 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+label {
+    font-size: 1.5rem;
 }
 
 
