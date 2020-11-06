@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c32a1a57-2dd7-45f6-b54a-f4d1e1cbc5b5" name="Default Changelist" comment="" />
+    <list default="true" id="c32a1a57-2dd7-45f6-b54a-f4d1e1cbc5b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pdo/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pdo/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/require/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/require/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,17 +19,22 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
   <component name="ProjectId" id="1jrePCmtAa21pnaCn5jeGPd4H5D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mathematic" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Test/PHP/comptes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,6 +60,7 @@
       <updated>1604566611984</updated>
       <workItem from="1604566613355" duration="7346000" />
       <workItem from="1604574638566" duration="13739000" />
+      <workItem from="1604648129544" duration="14945000" />
     </task>
     <servers />
   </component>
@@ -65,17 +80,21 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604587386715" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604568699061">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604661523184">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604568699061" />
-    <state x="634" y="353" key="NewPhpFileDialog" timestamp="1604585206330">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604661523184" />
+    <state x="634" y="353" key="NewPhpFileDialog" timestamp="1604666358183">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="634" y="353" key="NewPhpFileDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604585206330" />
-    <state x="456" y="195" key="run.anything.popup" timestamp="1604591058801">
+    <state x="634" y="353" key="NewPhpFileDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604666358183" />
+    <state x="658" y="56" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604662032505">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="195" key="run.anything.popup/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604591058801" />
+    <state x="658" y="56" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604662032505" />
+    <state x="456" y="195" key="run.anything.popup" timestamp="1604666021944">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="456" y="195" key="run.anything.popup/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604666021944" />
   </component>
 </project>

@@ -1,42 +1,55 @@
 <?php
-
+require_once '../functions/functions.php';
 require_once '../pdo/db.php';
-$validate = false;
 
-if (isset($_POST['inscription'])) {
-    if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm'])) {
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        $mail = htmlspecialchars($_POST['email']);
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $confirm = password_hash($_POST['confirm'], PASSWORD_BCRYPT);
+session_start();
 
-        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            $reqmail = $bdd->prepare('SELECT * FROM membres WHERE mail = ?');
-            $reqmail->execute(array($mail));
-            $mailExist = $reqmail->rowCount();
-            if ($mailExist == 0) {
-                if ($_POST['confirm'] == $_POST['password']) {
-                    $insertmbr = $bdd->prepare("INSERT INTO membres (pseudo, mail, password) VALUES (?, ?, ?)");
-                    $insertmbr->execute(array($pseudo, $mail, $password));
-                    $validate = true;
-                    $error = 'Votre compte est bien créé';
-    //                $_SESSION['crated_account'] = 'Votre compte est bien créé';
-                    // TODO Redirection vers une autre page
-                } else {
-                    $error = 'Vos mots de passe ne sont pas identiques';
-                }
-            } else {
-                $error = 'Adresse mail déjà utilisée';
-            }
-        } else {
-            $error = 'Votre email est invalide';
-        }
+$errors = array();
 
+if (!empty($_POST)) {
+    if (empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'])) {
+        $errors['pseudo'] = "Votre pseudo n'est pas valide";
     } else {
-        $error = 'Tous les champs doivent être complétés';
+        $req = $pdo->prepare('SELECT * FROM users WHERE pseudo = ?');
+        $req->execute([$_POST['pseudo']]);
+        $user = $req->fetch();
+        if ($user) {
+            $errors['pseudo'] = "Cet username est déjà pris";
+        }
+    }
+
+    if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Votre email n'est pas un email valide";
+    } else {
+        $req = $pdo->prepare('SELECT * FROM users WHERE email = ?');
+        $req->execute([$_POST['email']]);
+        $user = $req->fetch();
+        if ($user) {
+            $errors['email'] = "Cet email est déjà utilisé";
+        }
+    }
+
+    if (empty($_POST['password'])) {
+        $errors['password'] = "Vous devez rentrer un mot de passe valide";
+    }
+
+    if (empty($_POST['confirm']) || $_POST['confirm'] != $_POST['password']) {
+        $errors['confirm'] = "Vos mots de passe de sont pas identiques";
+    }
+
+    if (empty($errors)) {
+        $req = $pdo->prepare("INSERT INTO users SET pseudo = ?, password = ?, email = ?, confirmation_token = ?");
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $token = stringRandom(60);
+        $req->execute([$_POST['pseudo'], $password, $_POST['email'], $token]);
+        $userId = $pdo->lastInsertId();
+        mail($_POST['email'], 'Confirmation de votre compte',
+            "Afin de valider votre compte, merci de cliquer sur ce lien\n\nhttp://localhost:63342/noIdea/assets/php/pages/confirm.php?id=$userId&token=$token");
+        $_SESSION['flash']['success'] = "Un email de confirmation vous a été envoyé";
+        header("Location: login.php");
+        exit();
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -98,13 +111,16 @@ if (isset($_POST['inscription'])) {
            <div id="formContent">
                <!-- Tabs Titles -->
 
-               <?php
-               if (isset($error) && $validate == true) {
-                   echo "<p class='alert alert-success'>$error</p>";
-               } elseif (isset($error) && $validate == false) {
-                   echo "<p class='alert alert-danger'>$error</p>";
-               }
-               ?>
+               <?php if (!empty($errors)) : ?>
+                <div class="alert alert-danger">
+                    <p>Vous n'avez pas rempli le formulaire correctement</p>
+                    <ul>
+                    <?php foreach ($errors as $error) : ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                    </ul>
+                </div>
+               <?php endif; ?>
 
                <!-- Icon -->
                <div class="fadeIn first">
@@ -119,7 +135,7 @@ if (isset($_POST['inscription'])) {
                    <input type="password" id="password_confirm" class="fadeIn fifth, zero-radius" name="confirm" placeholder="confirm password">
 
                    <input type="submit" class="fadeIn fourth zero-raduis" name="inscription" value="register">
-                   <h2>You already have an account ?<h2>
+                   <h2>You already have an account ?</h2>
                            <a href="login.php"><input type="button" class="fadeIn fourth zero-raduis pc" value="login"></a>
                </form>
            </div>

@@ -30,12 +30,18 @@ $pageTitle = "";
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+                    <?php if (isset($_SESSION['auth'])) :?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="assets/php/pages/logout.php">Se déconnecter</a>
+                    </li>
+                    <?php else: ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="assets/php/pages/register.php">S'enregistrer<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="assets/php/pages/login.php">Se connecter</a>
                     </li>
+                    <?php endif; ?>
                 </ul>
                 <ul class="navbar-nav nav-flex-icons">
                     <li class="nav-item">
@@ -52,5 +58,8 @@ $pageTitle = "";
         </nav>
     </header>
     <!--Main Navigation-->
+
+    <!--Main Layout-->
+    <main role="main" class="index">
 
 
