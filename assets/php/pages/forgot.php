@@ -4,7 +4,7 @@ session_start();
     if (!empty($_POST)) {
         if (empty($_POST['password']) || empty($_POST['email'] || (empty($_POST['password']) && empty($_POST['email'])))) {
             $_SESSION['flash']['danger'] = "Des champs n'ont pas été complétés";
-        }elseif ($_POST['password'] != $_POST['password_confirm']) {
+        }elseif ($_POST['password'] !== $_POST['password_confirm']) {
             $_SESSION['flash']['danger'] = 'Les mots de passe ne correspondent pas';
         } else {
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
