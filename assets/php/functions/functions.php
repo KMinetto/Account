@@ -1,7 +1,7 @@
 <?php
 
 function debug($variables) {
-    echo '<pre style="font-size: 2.0rem">' . print_r($variables, true) . '</pre>';
+    echo '<pre style="font-size: 3.0rem color:white">' . print_r($variables, true) . '</pre>';
 }
 
 function stringRandom($length) {

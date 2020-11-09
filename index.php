@@ -1,7 +1,5 @@
 <?php
 
-
-
 require_once 'assets/php/require/header.php';
 $pagesTitle = 'noIdea | Accueil';
 
