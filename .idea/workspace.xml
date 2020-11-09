@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c32a1a57-2dd7-45f6-b54a-f4d1e1cbc5b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/account.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/php/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/functions/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/pages/forgot.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/forgot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/pages/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +48,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="account" />
-                    <option name="lastUsedInstant" value="1604912938" />
+                    <option name="branchName" value="player" />
+                    <option name="lastUsedInstant" value="1604932066" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -158,10 +159,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604661523184" />
-    <state x="634" y="353" key="NewPhpFileDialog" timestamp="1604686543306">
+    <state x="634" y="353" key="NewPhpFileDialog" timestamp="1604933342253">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="634" y="353" key="NewPhpFileDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604686543306" />
+    <state x="634" y="353" key="NewPhpFileDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604933342253" />
     <state x="645" y="49" key="RollbackChangesDialog" timestamp="1604919123423">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

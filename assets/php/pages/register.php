@@ -33,7 +33,7 @@ if (!empty($_POST)) {
         $errors['password'] = "Vous devez rentrer un mot de passe valide";
     }
 
-    if (empty($_POST['confirm']) || $_POST['confirm'] != $_POST['password']) {
+    if (empty($_POST['confirm']) || $_POST['confirm'] !== $_POST['password']) {
         $errors['confirm'] = "Vos mots de passe de sont pas identiques";
     }
 
