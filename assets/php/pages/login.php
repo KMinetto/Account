@@ -1,11 +1,16 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+require_once '../pdo/db.php';
+require_once '../functions/functions.php';
+reconnectCookie();
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once '../functions/functions.php';
 
+if (isset($_SESSION['auth'])) {
+    header('Location: ../../../account.php');
+    exit();
+}
 if (!empty($_POST) && !empty($_POST['pseudo']) && !empty(['password'])) {
-    require_once '../pdo/db.php';
     $req = $pdo->prepare('SELECT * FROM users WHERE (pseudo = :pseudo OR email = :pseudo) 
                       AND confirmed_at IS NOT NULL');
     $req->execute(['pseudo' => $_POST['pseudo']]);
@@ -13,6 +18,11 @@ if (!empty($_POST) && !empty($_POST['pseudo']) && !empty(['password'])) {
     if(password_verify($_POST['password'], $user->password)) {
         $_SESSION['auth'] = $user;
         $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté';
+        if ($_POST['rememberMe']) {
+            $rememberToken = stringRandom(250);
+            $pdo->prepare('UPDATE users SET remember_token = ? WHERE id = ?')->execute([$rememberToken, $user->id]);
+            setCookie('remember', $user->id . '==' . $rememberToken . sha1($user->id . 'ratonLaveurs'), time() + 60 * 60 * 24 * 7);
+        }
         header('Location: ../../../account.php');
         exit();
     } else {
@@ -85,8 +95,8 @@ if (!empty($_POST) && !empty($_POST['pseudo']) && !empty(['password'])) {
 
             <?php if (isset($_SESSION['flash'])): ?>
                 <?php foreach ($_SESSION['flash'] as $type => $message) : ?>
-                   <div class="alert alert-<?= $type ?>">
-                       <p><?= $message ?></p>
+                   <div style="" class="alert alert-<?= $type ?>">
+                       <p style="font-size: 20px"><?= $message ?></p>
                    </div>
                 <?php endforeach; ?>
             <?php unset($_SESSION['flash']); ?>
@@ -94,7 +104,6 @@ if (!empty($_POST) && !empty($_POST['pseudo']) && !empty(['password'])) {
 
             <!-- Icon -->
             <div class="fadeIn first">
-                <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
                 <h2 class="my-5">Log In</h2>
             </div>
 
@@ -104,6 +113,11 @@ if (!empty($_POST) && !empty($_POST['pseudo']) && !empty(['password'])) {
                 <input type="password" id="password" class="fadeIn third zero-radius" name="password" placeholder="password">
                 <div id="formFooter">
                     <a class="underlineHover" href="forgot.php">Forgot Password?</a>
+                </div>
+                <div>
+                    <label for="">
+                        <input type="checkbox" name="rememberMe" id="rememberMe" value="1"> Se souvenir de moi
+                    </label>
                 </div>
                 <input type="submit" class="fadeIn fourth zero-raduis" value="login">
                 <h2>You don't have a account ?</h2>

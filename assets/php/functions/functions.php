@@ -10,7 +10,7 @@ function stringRandom($length) {
 }
 
 function loggedOnly() {
-    if (session_status() == PHP_SESSION_NONE) {
+    if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     if (!isset($_SESSION['auth'])) {
@@ -18,4 +18,34 @@ function loggedOnly() {
         header('Location: assets/php/pages/login.php');
         exit();
     }
+}
+
+function reconnectCookie() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+            if (isset($_COOKIE['remember']) && !isset($_SESSION['auth'])) {
+            require_once '../pdo/db.php';
+            if (!isset($pdo)) {
+                global $pdo;
+            }
+            $rememberToken = $_COOKIE['remember'];
+            $parts = explode('==', $rememberToken);
+            $userId = $parts[0];
+            $req = $pdo->prepare('SELECT * FROM users WHERE id = ?');
+            $req->execute([$userId]);
+            $user = $req->fetch();
+            if ($user) {
+                $expected = $userId . '==' . $user->remember_token . sha1($userId . 'ratonLaveurs');
+                if ($expected === $rememberToken) {
+                    session_start();
+                    $_SESSION['auth'] = $user;
+                    setCookie('remember', $rememberToken, time() + 60 * 60 * 24 * 7);
+                }
+            } else {
+                setCookie('remember', null, -1);
+            }
+        } else {
+                setCookie('remember', null, -1);
+            }
 }
