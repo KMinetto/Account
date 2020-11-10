@@ -16,16 +16,24 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c32a1a57-2dd7-45f6-b54a-f4d1e1cbc5b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ef2dd383-a9a3-4566-9cde-59a286dd19e6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ef2dd383-a9a3-4566-9cde-59a286dd19e6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/functions/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/pages/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/pages/logout.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +57,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="player" />
-                    <option name="lastUsedInstant" value="1604932066" />
+                    <option name="lastUsedInstant" value="1605002152" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -91,7 +99,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -116,6 +124,7 @@
       <workItem from="1604909541149" duration="1787000" />
       <workItem from="1604911736677" duration="556000" />
       <workItem from="1604912407046" duration="10316000" />
+      <workItem from="1605001920789" duration="8474000" />
     </task>
     <servers />
   </component>
@@ -127,7 +136,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -135,10 +156,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="553" y="250" key="#Notifications" timestamp="1604910478569">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="2072" y="212" key="#Notifications" timestamp="1605002053549">
+      <screen x="1600" y="0" width="1366" height="728" />
     </state>
     <state x="553" y="250" key="#Notifications/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604910478569" />
+    <state x="2072" y="212" key="#Notifications/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002053549" />
     <state x="507" y="73" key="#PHP" timestamp="1604566982247">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -151,14 +173,35 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="701" y="245" width="541" height="370" key="#Vim_Emulation/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604919091648" />
-    <state x="121" y="80" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604910136907">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="1703" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605002216479">
+      <screen x="1600" y="0" width="1366" height="728" />
     </state>
     <state x="121" y="80" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604910136907" />
+    <state x="1703" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002216479" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604661523184">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604661523184" />
+    <state width="1069" height="308" key="GridCell.Tab.0.bottom" timestamp="1605020497853">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="308" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605020497853" />
+    <state width="905" height="246" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002759919" />
+    <state width="1069" height="308" key="GridCell.Tab.0.center" timestamp="1605020497853">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="308" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605020497853" />
+    <state width="905" height="246" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002759919" />
+    <state width="1069" height="308" key="GridCell.Tab.0.left" timestamp="1605020497852">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="308" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605020497852" />
+    <state width="905" height="246" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002759918" />
+    <state width="1069" height="308" key="GridCell.Tab.0.right" timestamp="1605020497853">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="308" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605020497853" />
+    <state width="905" height="246" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002759919" />
     <state x="634" y="353" key="NewPhpFileDialog" timestamp="1604933342253">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -167,18 +210,23 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="645" y="49" key="RollbackChangesDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604919123423" />
-    <state x="301" y="75" key="SettingsEditor" timestamp="1604912302628">
+    <state x="301" y="75" key="SettingsEditor" timestamp="1605017279750">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="301" y="75" key="SettingsEditor/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604912302628" />
+    <state x="301" y="75" key="SettingsEditor/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1605017279750" />
     <state x="701" y="306" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604910153458">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="701" y="306" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604910153458" />
-    <state x="658" y="0" width="512" height="860" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604913730308">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="2162" y="0" width="512" height="728" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605002644103">
+      <screen x="1600" y="0" width="1366" height="728" />
     </state>
     <state x="658" y="0" width="512" height="860" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1604913730308" />
+    <state x="2162" y="0" width="512" height="728" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605002644103" />
+    <state x="2100" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605001993036">
+      <screen x="1600" y="0" width="1366" height="728" />
+    </state>
+    <state x="2100" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860/1600.0.1366.728@1600.0.1366.728" timestamp="1605001993036" />
     <state x="456" y="195" key="run.anything.popup" timestamp="1604666021944">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

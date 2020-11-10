@@ -40,8 +40,6 @@ if (!empty($_POST)) {
         $req->execute([$_POST['namePlayer'], $_POST['racePlayer'], $_POST['playerDescription']]);
         $playerId = $pdo->lastInsertId();
         $_SESSION['flash']['success'] = "Votre personnage est créé";
-        header("Location: account.php");
-        exit();
     }
 }
 
@@ -50,9 +48,13 @@ if (!empty($_POST)) {
         $req->execute(['name' => $_POST['namePlayer']]);
         $player = $req->fetch();
         $_SESSION['player'] = $player;
+        header("Location: account.php");
+        exit();
     }
 
-    debug($_SESSION);
+    // TODO clé étrangère pour garder infos du joueur
+
+debug($_SESSION);
 ?>
 
 <?php require_once 'assets/php/require/header.php'; ?>
@@ -87,7 +89,7 @@ if (!empty($_POST)) {
 
                     <?php if (!empty($errors)) : ?>
                         <div class="alert alert-danger">
-                            <p>Vous n'avez pas rempli le formulaire correctement</p>
+                            <p>Vous n'avez pas rempli votre fiche de personnage correctement</p>
                             <ul>
                                 <?php foreach ($errors as $error) : ?>
                                     <li><?= $error; ?></li>
@@ -104,7 +106,7 @@ if (!empty($_POST)) {
                     <!-- Login Form -->
                     <form action="" method="post">
                         <div>
-                            <?php if (!empty($_POST)) : ?>
+                            <?php if (isset($_SESSION['auth'])) : ?>
                             <p>
                                 Nom : <?= $_SESSION['player']->name ?>
                             </p>
@@ -114,7 +116,7 @@ if (!empty($_POST)) {
                         </div>
                         <div>
                             <p>
-                                <?php if (!empty($_POST)) : ?>
+                                <?php if (isset($_SESSION['player'])) : ?>
                             <p>
                                 Race : <?= $_SESSION['player']->race ?>
                             </p>
@@ -124,7 +126,7 @@ if (!empty($_POST)) {
                             </p>
                         </div>
                         <div>
-                            <?php if (!empty($_POST)) : ?>
+                            <?php if (isset($_SESSION['player'])) : ?>
                                 <p>
                                    Niveau : <?= $_SESSION['player']->level ?>
                                 </p>
@@ -133,7 +135,7 @@ if (!empty($_POST)) {
                             <?php endif; ?>
                         </div>
                         <div>
-                            <?php if (!empty($_POST)) : ?>
+                            <?php if (isset($_SESSION['player'])) : ?>
                                 <p>
                                     Description : <?= $_SESSION['player']->description ?>
                                 </p>
