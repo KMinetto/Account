@@ -1,7 +1,7 @@
 <?php
 require_once '../pdo/db.php';
 require_once '../functions/functions.php';
-reconnectCookie();
+//reconnectCookie();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
